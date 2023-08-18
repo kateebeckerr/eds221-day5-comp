@@ -1,0 +1,73 @@
+---
+title: "testing_functions"
+format: html
+editor: visual
+---
+
+#yaml bounded by 3 dashes including title, format, editor
+
+#downloaded packages remote, testthat, devtools in console
+
+```{r}
+library(testthat)
+
+```
+
+## Function writing and testing
+
+-   data frame with only numeric, calculate means and return a range telling you lowest mean and highest mean across columns, store as col-names, access columns from, margin = 2 for calculating things but column, 1 calculates things by row, function = mean , col mean max finds max of means in col, c creates vectors containing col mean min and col mean max
+
+```{r}
+mean_range <- function(df) {
+  col_means <- apply(X = df, MARGIN = 2, FUN = mean, na.rm = TRUE)
+  col_mean_max <- max(col_means)
+  col_mean_min <- min(col_means)
+  return(c(col_mean_min, col_mean_max))
+}
+
+```
+
+```{r}
+mean_range(mtcars)
+
+```
+
+```{r}
+mean_range(faithful)
+
+```
+
+```{r}
+#normally doing unit test would keep in a testing folder
+#function didnt work if it reeturned 3 variabels
+#length should always be 2
+#lots of expect that to test for in r, give example for it to test function, 2 added becasue it should be 2, if nothign happened it works!, put in 3 recieve an error
+
+expect_length(mean_range(mtcars), 2)
+expect_length(mean_range(mtcars), 3)
+
+```
+
+```{r}
+#should always be numeric, expa
+expect_type(mean_range(mtcars), "double")
+```
+
+```{r}
+#receive error!
+expect_type(mean_range(mtcars), "character")
+```
+
+```{r}
+#first element should be less than or equal to 2nd element in vector, expect_true, give conition and expect outcomine in conditional statement to be true, followinig condition to be true '
+#element from rangeuse [], first e, if anyting output is a vector use square brackets and place elemnt number like specified row or column
+expect_true(mean_range(mtcars))
+expect_true(mean_range(mtcars)[1] <= mean_range(mtcars)[2])
+```
+
+```{r}
+expect_true(mean_range(mtcars)[1] >= mean_range(mtcars)[2])
+#unit testing when you write series of tests that can test behavior of fucntion if behaving expectedly = UNIT TESTING!
+```
+
+unit testing when you write series of tests that can test behavior of fucntion if behaving expectedly = UNIT TESTING!!!!!!

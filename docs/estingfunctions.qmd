@@ -78,7 +78,15 @@ source(here::here("src", "name_cart.R")
 ```
 
 ```{r}
-name_cart(food = "ecnhilada", animal = "hawk")
+name_cart(food = "ecnhilada", animal = "hawk") #from function in R sript I created
+```
+
+```{r}
+source(here::here("src", "cork_oak_growth.R")
+```
+
+```{r}
+height_t2(height_t1 = 20, t1 = 4, t2 = 19)
 ```
 
 ```{r}

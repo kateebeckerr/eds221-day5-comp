@@ -71,3 +71,7 @@ expect_true(mean_range(mtcars)[1] >= mean_range(mtcars)[2])
 ```
 
 unit testing when you write series of tests that can test behavior of fucntion if behaving expectedly = UNIT TESTING!!!!!!
+
+```{r}
+
+```
